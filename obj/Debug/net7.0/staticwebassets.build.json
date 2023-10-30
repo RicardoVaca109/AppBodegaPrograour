@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fJKISncE7s8OMkYHhYM75eDtFBxxdBNaRDwe0ASXYWs=",
+  "Hash": "0iZo01xrg4yDxSBtY/jjCr9qxXWP4hBSsgOuhdxu5+A=",
   "Source": "appBodega",
   "BasePath": "_content/appBodega",
   "Mode": "Default",
@@ -644,6 +644,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Identity": "R:\\prograFinal\\appBodega\\wwwroot\\lib\\bootstrap\\dist\\css\\sand.min.css",
+      "SourceId": "appBodega",
+      "SourceType": "Discovered",
+      "ContentRoot": "R:\\prograFinal\\appBodega\\wwwroot\\",
+      "BasePath": "_content/appBodega",
+      "RelativePath": "lib/bootstrap/dist/css/sand.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\sand.min.css"
     },
     {
       "Identity": "R:\\prograFinal\\appBodega\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
