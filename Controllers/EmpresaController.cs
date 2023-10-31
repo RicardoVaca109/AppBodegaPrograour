@@ -1,28 +1,25 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using appBodega.Models;
-using System.Diagnostics;
 using appBodega.Utils;
-
 
 namespace appBodega.Controllers
 {
-    public class ProductoController : Controller
+    public class EmpresaController : Controller
     {
-        // GET: ProductoController
+        // GET: EmpresaController
         public IActionResult Index()
         {
             
-            return View(Utils.Utils.ListaProductos);
+            return View(Utils.Utils.ListaEmpresas);
         }
 
-        // GET: ProductoController/Details/5
+        // GET: EmpresaController/Details/5
         public IActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: ProductoController/Create
+        // GET: EmpresaController/Create
         public IActionResult Create()
         {
             return View();
@@ -30,7 +27,7 @@ namespace appBodega.Controllers
 
         
 
-        // GET: ProductoController/Edit/5
+        // GET: EmpresaController/Edit/5
         public IActionResult Edit(int id)
         {
             return View();
@@ -38,13 +35,12 @@ namespace appBodega.Controllers
 
        
 
-        // GET: ProductoController/Delete/5
+        // GET: EmpresaController/Delete/5
         public IActionResult Delete(int id)
         {
             return View();
         }
 
-       
         
     }
 }
