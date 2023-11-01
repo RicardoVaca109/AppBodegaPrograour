@@ -15,5 +15,10 @@ namespace appBodega.Services
         Task<Empresa> PutEmpresa(int EmpresaID, Empresa empresa);
         Task<Empresa> DeleteEmpresa(int EmpresaID);
 
+        Task<List<User>> GetUser();
+        Task<User> GetUser(int IdUser);
+        Task<User> PostEmpresa(User userToValidate);
+        Task<User> PostEmpresa(User newUser);
+
     }
 }
