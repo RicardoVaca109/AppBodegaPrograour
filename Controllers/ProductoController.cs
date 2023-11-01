@@ -12,14 +12,20 @@ namespace appBodega.Controllers
         // GET: ProductoController
         public IActionResult Index()
         {
-            
+
             return View(Utils.Utils.ListaProductos);
         }
 
         // GET: ProductoController/Details/5
-        public IActionResult Details(int id)
+        public IActionResult Details(int ProductoId)
         {
-            return View();
+            Producto producto = Utils.Utils.ListaProductos.Find(x => x.ProductoId == ProductoId);
+            if (producto != null)
+            {
+                return View(producto);
+            }
+            return RedirectToAction("Index");
+            
         }
 
         // GET: ProductoController/Create
@@ -32,23 +38,50 @@ namespace appBodega.Controllers
         {
             int i = Utils.Utils.ListaProductos.Count() + 1;
             producto.ProductoId = i;
-            Utils.Utils.ListaProductos.Add(producto);   
+            Utils.Utils.ListaProductos.Add(producto);
             return RedirectToAction("Index");
         }
 
 
         // GET: ProductoController/Edit/5
-        public IActionResult Edit(int id)
+        public IActionResult Edit(int ProductoId)
         {
+            Producto producto = Utils.Utils.ListaProductos.Find(x => x.ProductoId == ProductoId);
+            if (producto != null) {
+                return View(producto);
+            }
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Producto producto)
+        {
+            Producto producto2 = Utils.Utils.ListaProductos.Find(x => x.ProductoId == producto.ProductoId);
+            if (producto2 != null)
+            {
+                producto2.Nombre = producto.Nombre;
+                producto2.Descripcion = producto.Descripcion;
+                producto2.Precio = producto.Precio;
+                producto2.CtdenStock = producto.CtdenStock;
+                producto2.ProveedorId = producto.ProveedorId;
+                return RedirectToAction("Index");
+
+            }
             return View();
         }
 
-       
+
 
         // GET: ProductoController/Delete/5
-        public IActionResult Delete(int id)
+        public IActionResult Delete(int ProductoId)
         {
-            return View();
+            Producto producto2 = Utils.Utils.ListaProductos.Find(x => x.ProductoId == ProductoId);
+            if (producto2 != null)
+            { 
+                Utils.Utils.ListaProductos.Remove(producto2);
+                return RedirectToAction("Index");
+            }
+                return RedirectToAction("Index");
         }
 
        
