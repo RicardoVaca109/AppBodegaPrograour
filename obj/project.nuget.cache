@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "czaSlyqWHMbBmfPDKF1sydb2m822JiXZr/u2wlfp4daIRuTtufQc8s55yvSuRRU5N6/V2SxSnTg6If1kXK6EgQ==",
+  "dgSpecHash": "NelKoOw8g4V5CiD9mVvPhLc896uzCMydBQT5LHpgt1wCpqGZ5LXMx9qIdlUbshtWJLXTadqJFqc9hPZaWDluNg==",
   "success": true,
   "projectFilePath": "R:\\prograFinal\\appBodega\\appBodega.csproj",
   "expectedPackageFiles": [
@@ -41,6 +41,7 @@
     "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\USUARIO\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\USUARIO\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\USUARIO\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\USUARIO\\.nuget\\packages\\system.configuration.configurationmanager\\6.0.1\\system.configuration.configurationmanager.6.0.1.nupkg.sha512",
     "C:\\Users\\USUARIO\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",

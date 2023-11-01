@@ -1,4 +1,4 @@
-﻿@model List<appBodega.Models.Producto>;
+﻿@model List<appBodega.Models.Producto>
 @{
     ViewData["Title"] = "Productos de las Empresas";
     
@@ -19,7 +19,7 @@
         </tr>
     </thead>
     <tbody>
-    @foreach (var item in Model)
+        @foreach (var item in Model)
     {
         
             <tr>
@@ -33,7 +33,7 @@
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <a asp-action="Delete" asp-route-ProductoId="@item.ProductoId" class="btn btn-danger"><i class="bi bi-trash-fill"></i></a>
                         <a asp-action="Edit" asp-route-ProductoId="@item.ProductoId" class="btn btn-warning"><i class="bi bi-pencil-fill"></i></a>
-                        <a asp-action="Details" asp-route-ProductoId="@item.ProductoId" class="btn btn-success"><i class="bi bi-eye-fill"></i></a>
+                        <!--<a asp-action="Details" asp-route-ProductoId="@item.ProductoId" class="btn btn-success"><i class="bi bi-eye-fill"></i></a>-->
                     </div>
                 </td>
             </tr>

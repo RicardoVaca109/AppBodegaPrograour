@@ -1,20 +1,35 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using appBodega.Services;
+using appBodega.Models;
 
 namespace appBodega.Controllers
 {
     public class UserController : Controller
     {
-        // GET: UserController
-        public ActionResult Index()
+        private readonly IAPIService _apiService;
+
+        public UserController(IAPIService apiService)
         {
-            return View();
+            _apiService = apiService;
+        }
+        // GET: UserController
+        public async Task<IActionResult> Index()
+        {
+            List<User> usuarios = await _apiService.GetUsers();
+            return View(usuarios);
         }
 
         // GET: UserController/Details/5
-        public ActionResult Details(int id)
+        public async Task<IActionResult> Details(int IdUser)
         {
-            return View();
+            User usuario = await _apiService.GetUser(IdUser);
+            if (usuario != null)
+            {
+                return View(usuario);
+            }
+            return RedirectToAction("Index");
+
         }
 
         // GET: UserController/Create
@@ -22,22 +37,28 @@ namespace appBodega.Controllers
         {
             return View();
         }
-
+        [HttpPost]
+        public async Task<IActionResult> Create(User usuario)
+        {
+            User usuario1 = await _apiService.PostUser(usuario);
+            return RedirectToAction("Index");
+        }
 
         // GET: UserController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int IdUser)
         {
-            return View();
+            User usuarios = await _apiService.GetUser(IdUser);
+            if (usuarios != null)
+            {
+                return View(usuarios);
+            }
+            return RedirectToAction("Index");
         }
-
+       
         
 
-        // GET: UserController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
 
+        
         
     }
 }

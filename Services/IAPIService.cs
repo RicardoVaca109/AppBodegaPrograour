@@ -1,24 +1,24 @@
 ﻿using appBodega.Models;
 namespace appBodega.Services
 {
-    public class IAPIService
+    public interface IAPIService
     {
-        Task<List<Producto>> GetProducto();
-        Task<Producto> GetProducto(int ProveedorId);
-        Task<Producto> PostProducto(Producto producto);
-        Task<Producto> PutProducto(int ProductoId, Producto producto);
-        Task<string> DeleteProducto(int ProductoId);
+        public Task<List<Producto>> GetProductos();
+        public Task<Producto> GetProducto(int ProveedorId);
+        public Task<Producto> PostProducto(Producto producto);
+        public Task<Producto> PutProducto(int ProductoId, Producto producto);
+        public Task<Boolean> DeleteProducto(int ProductoId);
 
-        Task<List<Empresa>> GetEmpresa();
-        Task<Empresa> GetEmpresa(int EmpresaID);
-        Task<Empresa> PostEmpresa(Empresa empresas);
-        Task<Empresa> PutEmpresa(int EmpresaID, Empresa empresa);
-        Task<Empresa> DeleteEmpresa(int EmpresaID);
+        public Task<List<Empresa>> GetEmpresas();
+        public Task<Empresa> GetEmpresa(int EmpresaID);
+        public Task<Empresa> PostEmpresa(Empresa empresas);
+        public Task<Empresa> PutEmpresa(int EmpresaID, Empresa empresa);
+        public Task<Boolean> DeleteEmpresa(int EmpresaID);
 
-        Task<List<User>> GetUser();
-        Task<User> GetUser(int IdUser);
-        Task<User> PostEmpresa(User userToValidate);
-        Task<User> PostEmpresa(User newUser);
+        public Task<List<User>> GetUsers();
+        public Task<User> GetUser(int IdUser);
+        //public Task<User> PostUsuarios(User userToValidate);
+        public Task<User> PostUser(User newUser);
 
     }
 }

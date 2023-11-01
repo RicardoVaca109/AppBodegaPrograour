@@ -73,3 +73,4 @@ R:\prograFinal\appBodega\obj\Debug\net7.0\refint\appBodega.dll
 R:\prograFinal\appBodega\obj\Debug\net7.0\appBodega.pdb
 R:\prograFinal\appBodega\obj\Debug\net7.0\appBodega.genruntimeconfig.cache
 R:\prograFinal\appBodega\obj\Debug\net7.0\ref\appBodega.dll
+R:\prograFinal\appBodega\bin\Debug\net7.0\Newtonsoft.Json.dll

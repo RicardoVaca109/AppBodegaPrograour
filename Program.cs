@@ -1,7 +1,9 @@
+using appBodega.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IAPIService, APIService>();
 
 var app = builder.Build();
 

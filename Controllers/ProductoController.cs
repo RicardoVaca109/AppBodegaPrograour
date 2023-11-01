@@ -3,29 +3,37 @@ using Microsoft.AspNetCore.Mvc;
 using appBodega.Models;
 using System.Diagnostics;
 using appBodega.Utils;
+using appBodega.Services;
 
 
 namespace appBodega.Controllers
 {
     public class ProductoController : Controller
     {
-        // GET: ProductoController
-        public IActionResult Index()
-        {
+        private readonly IAPIService _apiService;
 
-            return View(Utils.Utils.ListaProductos);
+        public ProductoController(IAPIService apiService)
+        {
+            _apiService = apiService;
+        }
+        // GET: ProductoController
+        public async Task<IActionResult> Index()
+        {
+            List<Producto> productos = await _apiService.GetProductos();
+            return View(productos);
         }
 
+
         // GET: ProductoController/Details/5
-        public IActionResult Details(int ProductoId)
+        public async Task<IActionResult> Details(int ProductoId)
         {
-            Producto producto = Utils.Utils.ListaProductos.Find(x => x.ProductoId == ProductoId);
+            Producto producto = await _apiService.GetProducto(ProductoId);
             if (producto != null)
             {
                 return View(producto);
             }
             return RedirectToAction("Index");
-            
+           
         }
 
         // GET: ProductoController/Create
@@ -34,38 +42,33 @@ namespace appBodega.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create(Producto producto)
+        public async Task<IActionResult> Create(Producto producto)
         {
-            int i = Utils.Utils.ListaProductos.Count() + 1;
-            producto.ProductoId = i;
-            Utils.Utils.ListaProductos.Add(producto);
+            Producto producto1 = await _apiService.PostProducto(producto);
             return RedirectToAction("Index");
         }
 
 
         // GET: ProductoController/Edit/5
-        public IActionResult Edit(int ProductoId)
+        public async Task<IActionResult> Edit(int ProductoId)
         {
-            Producto producto = Utils.Utils.ListaProductos.Find(x => x.ProductoId == ProductoId);
-            if (producto != null) {
+            Producto producto = await _apiService.GetProducto(ProductoId);
+            if (producto != null)
+            {
                 return View(producto);
             }
             return RedirectToAction("Index");
         }
 
         [HttpPost]
-        public IActionResult Edit(Producto producto)
+        public async Task<IActionResult> Edit(Producto producto)
         {
-            Producto producto2 = Utils.Utils.ListaProductos.Find(x => x.ProductoId == producto.ProductoId);
+            Producto producto2 = await _apiService.GetProducto(producto.ProductoId);
             if (producto2 != null)
             {
-                producto2.Nombre = producto.Nombre;
-                producto2.Descripcion = producto.Descripcion;
-                producto2.Precio = producto.Precio;
-                producto2.CtdenStock = producto.CtdenStock;
-                producto2.ProveedorId = producto.ProveedorId;
-                return RedirectToAction("Index");
+                Producto producto3 = await _apiService.PutProducto(producto.ProductoId, producto);
 
+                return RedirectToAction("Index");
             }
             return View();
         }
@@ -73,18 +76,16 @@ namespace appBodega.Controllers
 
 
         // GET: ProductoController/Delete/5
-        public IActionResult Delete(int ProductoId)
+        public async Task<IActionResult> Delete(int ProductoId)
         {
-            Producto producto2 = Utils.Utils.ListaProductos.Find(x => x.ProductoId == ProductoId);
-            if (producto2 != null)
-            { 
-                Utils.Utils.ListaProductos.Remove(producto2);
+            Boolean producto2 = await _apiService.DeleteProducto(ProductoId);
+            if (producto2 != false)
+            {
                 return RedirectToAction("Index");
             }
-                return RedirectToAction("Index");
+            return RedirectToAction("Index");
         }
 
-       
-        
+
     }
 }
