@@ -9,7 +9,6 @@ namespace appBodega.Models
         public string UserMail { get; set; }
         
         public string UserPassword { get; set; }
-        public bool IsBlocked { get; set; }
 
        
     }
