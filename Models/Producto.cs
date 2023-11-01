@@ -17,14 +17,6 @@ namespace appBodega.Models
         
         public int ProveedorId { get; set; }
 
-        public Producto(int ProductoId, string Nombre, string Descripcion, double Precio, int CtdenStock,int ProveedorId)
-        {
-            this.ProductoId = ProductoId;
-            this.Nombre = Nombre;
-            this.Descripcion = Descripcion;
-            this.Precio = Precio;  
-            this.CtdenStock = CtdenStock;
-            this.ProveedorId = ProveedorId;
-        }
+        
     }
 }

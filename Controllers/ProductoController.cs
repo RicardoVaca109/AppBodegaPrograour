@@ -30,7 +30,10 @@ namespace appBodega.Controllers
         [HttpPost]
         public IActionResult Create(Producto producto)
         {
-            return View();
+            int i = Utils.Utils.ListaProductos.Count() + 1;
+            producto.ProductoId = i;
+            Utils.Utils.ListaProductos.Add(producto);   
+            return RedirectToAction("Index");
         }
 
 
