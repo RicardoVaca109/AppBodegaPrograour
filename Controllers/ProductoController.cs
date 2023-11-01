@@ -27,8 +27,12 @@ namespace appBodega.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Create(Producto producto)
+        {
+            return View();
+        }
 
-        
 
         // GET: ProductoController/Edit/5
         public IActionResult Edit(int id)
