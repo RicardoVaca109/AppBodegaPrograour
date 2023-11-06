@@ -17,8 +17,9 @@ namespace appBodega.Services
 
         public Task<List<User>> GetUsers();
         public Task<User> GetUser(int IdUser);
-        //public Task<User> PostUsuarios(User userToValidate);
+        public Task<bool> VerificarUsuario(User userToValidate);
         public Task<User> PostUser(User newUser);
+        Task<List<int>> GetEmpresaIDs();
 
     }
 }

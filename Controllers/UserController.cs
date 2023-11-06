@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using appBodega.Services;
 using appBodega.Models;
+using System.Collections.Generic;
 
 namespace appBodega.Controllers
 {
@@ -21,9 +22,10 @@ namespace appBodega.Controllers
         }
 
         // GET: UserController/Details/5
-        public async Task<IActionResult> Details(int IdUser)
+        public async Task<IActionResult> Details(User usuario)
         {
-            User usuario = await _apiService.GetUser(IdUser);
+            Console.WriteLine(usuario);
+            var result = await _apiService.VerificarUsuario(usuario);
             if (usuario != null)
             {
                 return View(usuario);

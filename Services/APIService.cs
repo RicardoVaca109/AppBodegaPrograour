@@ -168,6 +168,18 @@ namespace appBodega.Services
             }
             return new User();
         }
+
+        public async Task<bool> VerificarUsuario(User userToValidate)
+        {
+            var content = new StringContent(JsonConvert.SerializeObject(userToValidate), Encoding.UTF8, "application/json");
+            var response = await _httpClient.PostAsync("/api/User", content);
+            if (response.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public async Task<User> PostUser(User newUser)
         {
             var content = new StringContent(JsonConvert.SerializeObject(newUser), Encoding.UTF8, "application/json");
@@ -179,6 +191,18 @@ namespace appBodega.Services
                 return usuario2;
             }
             return new User();
+        }
+
+        public async Task<List<int>> GetEmpresaIDs()
+        {
+            var response = await _httpClient.GetAsync("/api/Empresa/EmpresaID");
+            if (response.IsSuccessStatusCode)
+            {
+                var json_response = await response.Content.ReadAsStringAsync();
+                List<int> empresaIDs = JsonConvert.DeserializeObject<List<int>>(json_response);
+                return empresaIDs;
+            }
+            return new List<int>();
         }
     }
 }
