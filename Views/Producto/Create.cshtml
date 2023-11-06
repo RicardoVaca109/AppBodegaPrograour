@@ -30,7 +30,16 @@
 
         <div class="mb-3">
             <label for="proveedorId" class="form-label">Proveedor ID (ID de la empresa)</label>
-            <input asp-for="ProveedorId" class="form-control" id="proveedorId" placeholder="Ingrese el ID del Proveedor para el nuevo Producto" required>
+            <select asp-for="ProveedorId" class="form-control" id="proveedorId" required>
+                <option value="">Seleccione el ID del proveedor</option>
+                @if (ViewBag.EmpresaIDs != null)
+                {
+                    foreach (var id in ViewBag.EmpresaIDs)
+                    {
+                        <option value="@id">@id</option>
+                    }
+                }
+            </select>
         </div>
 
         <div class="row justify-content-center">

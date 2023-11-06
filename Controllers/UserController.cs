@@ -25,12 +25,15 @@ namespace appBodega.Controllers
         public async Task<IActionResult> Details(User usuario)
         {
             Console.WriteLine(usuario);
+
             var result = await _apiService.VerificarUsuario(usuario);
-            if (usuario != null)
+
+            if (result)
             {
-                return View(usuario);
+                return RedirectToAction("Index", "Producto");
+
             }
-            return RedirectToAction("Index");
+            return View("Index");
 
         }
 

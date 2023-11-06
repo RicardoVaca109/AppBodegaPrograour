@@ -37,8 +37,12 @@ namespace appBodega.Controllers
         }
 
         // GET: ProductoController/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            List<int> empresaIDs = await _apiService.GetEmpresaIDs();
+
+            // Guarda los IDs en el ViewBag para usarlos en la vista
+            ViewBag.EmpresaIDs = empresaIDs;
             return View();
         }
         [HttpPost]
