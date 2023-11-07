@@ -24,6 +24,7 @@ namespace appBodega.Controllers
         // GET: UserController/Details/5
         public async Task<IActionResult> Details(User usuario)
         {
+
             Console.WriteLine(usuario);
 
             var result = await _apiService.VerificarUsuario(usuario);
@@ -33,6 +34,7 @@ namespace appBodega.Controllers
                 return RedirectToAction("Index", "Producto");
 
             }
+
             return View("Index");
 
         }
@@ -59,11 +61,11 @@ namespace appBodega.Controllers
             }
             return RedirectToAction("Index");
         }
-       
-        
 
 
-        
-        
+
+
+
+
     }
 }

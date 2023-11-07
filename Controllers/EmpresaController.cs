@@ -50,7 +50,7 @@ namespace appBodega.Controllers
         // GET: EmpresaController/Edit/5
         public async Task<IActionResult> Edit(int EmpresaID)
         {
-           Empresa empresa = await _apiService.GetEmpresa(EmpresaID);
+            Empresa empresa = await _apiService.GetEmpresa(EmpresaID);
             if (empresa != null)
             {
                 return View(empresa);
@@ -74,7 +74,7 @@ namespace appBodega.Controllers
         // GET: EmpresaController/Delete/5
         public async Task<IActionResult> Delete(int EmpresaID)
         {
-            Boolean empresa2= await _apiService.DeleteEmpresa(EmpresaID);
+            Boolean empresa2 = await _apiService.DeleteEmpresa(EmpresaID);
             if (empresa2 != false)
             {
                 return RedirectToAction("Index");

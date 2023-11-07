@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Login/Iniciar Sesión";
 }
 
@@ -15,14 +14,14 @@
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Email address</label>
                             <input type="email" name="UserMail" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
-                            <div id="emailHelp" class="form-text">No compartiremos su mail con nadie.</div>
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" required>
+                            <input type="password" name="UserPassword" class="form-control" id="exampleInputPassword1" required>
                         </div>
                         <div class="text-center">
-                            <a asp-controller="User" asp-action="Details" class="btn btn-outline-secondary btn-block" disabled>Submit</a>
+                            <button type="submit" id="submitButton" class="btn btn-primary"> Submit</button>
                         </div>
                     </form>
                 </div>

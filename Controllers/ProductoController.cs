@@ -33,7 +33,7 @@ namespace appBodega.Controllers
                 return View(producto);
             }
             return RedirectToAction("Index");
-           
+
         }
 
         // GET: ProductoController/Create
@@ -48,6 +48,9 @@ namespace appBodega.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Producto producto)
         {
+
+
+
             Producto producto1 = await _apiService.PostProducto(producto);
             return RedirectToAction("Index");
         }

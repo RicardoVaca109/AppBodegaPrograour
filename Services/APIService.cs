@@ -118,18 +118,18 @@ namespace appBodega.Services
             return new List<Empresa>();
 
         }
-         public async Task<Empresa> PostEmpresa(Empresa empresas)
-         {
-             var content = new StringContent(JsonConvert.SerializeObject(empresas), Encoding.UTF8, "application/json");
-             var response = await _httpClient.PostAsync("/api/Empresa/", content);
-             if (response.IsSuccessStatusCode)
-             {
-                 var json_response = await response.Content.ReadAsStringAsync();
-                 Empresa empresa2 = JsonConvert.DeserializeObject<Empresa>(json_response);
-                 return empresa2;
-             }
-             return new Empresa();
-         }
+        public async Task<Empresa> PostEmpresa(Empresa empresas)
+        {
+            var content = new StringContent(JsonConvert.SerializeObject(empresas), Encoding.UTF8, "application/json");
+            var response = await _httpClient.PostAsync("/api/Empresa/", content);
+            if (response.IsSuccessStatusCode)
+            {
+                var json_response = await response.Content.ReadAsStringAsync();
+                Empresa empresa2 = JsonConvert.DeserializeObject<Empresa>(json_response);
+                return empresa2;
+            }
+            return new Empresa();
+        }
 
         public async Task<Empresa> PutEmpresa(int EmpresaID, Empresa empresa)
         {
@@ -180,6 +180,7 @@ namespace appBodega.Services
             return false;
         }
 
+
         public async Task<User> PostUser(User newUser)
         {
             var content = new StringContent(JsonConvert.SerializeObject(newUser), Encoding.UTF8, "application/json");
@@ -204,6 +205,7 @@ namespace appBodega.Services
             }
             return new List<int>();
         }
+
     }
 }
     
