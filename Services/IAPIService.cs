@@ -8,6 +8,7 @@ namespace appBodega.Services
         public Task<Producto> PostProducto(Producto producto);
         public Task<Producto> PutProducto(int ProductoId, Producto producto);
         public Task<Boolean> DeleteProducto(int ProductoId);
+        //public Task<Producto> PostImage();
 
         public Task<List<Empresa>> GetEmpresas();
         public Task<Empresa> GetEmpresa(int EmpresaID);
@@ -18,6 +19,7 @@ namespace appBodega.Services
         public Task<List<User>> GetUsers();
         public Task<User> GetUser(int IdUser);
         public Task<bool> VerificarUsuario(User userToValidate);
+        //public Task<bool> VerificarUsuario(User usuario);
         public Task<User> PostUser(User newUser);
 
 

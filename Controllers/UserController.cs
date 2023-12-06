@@ -29,10 +29,11 @@ namespace appBodega.Controllers
 
             var result = await _apiService.VerificarUsuario(usuario);
 
+            //&& _apiService.VerificarContraseña(usuario)
             if (result)
             {
+                
                 return RedirectToAction("Index", "Producto");
-
             }
 
             return View("Index");

@@ -6,11 +6,12 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IAPIService, APIService>();
 
 var app = builder.Build();
+app.UseExceptionHandler("/Home/Error");
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
+    
 }
 app.UseStaticFiles();
 

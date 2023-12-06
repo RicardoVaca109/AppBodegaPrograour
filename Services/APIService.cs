@@ -94,6 +94,18 @@ namespace appBodega.Services
             return false;
         }
 
+        /*public async Task<Producto> PostImage(ContentViewModel model)
+        {
+            HttpPostedFileBase file = Request.Files["ImageData"];
+            ContentRepository service = new ContentRepository();
+            int i = service.UploadImageInDataBase(file, model);
+            if (i == 1)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(model);
+        }*/
+
         public async Task<Empresa> GetEmpresa(int EmpresaID)
         {
             var response = await _httpClient.GetAsync($"/api/Empresa/{EmpresaID}");
@@ -175,9 +187,27 @@ namespace appBodega.Services
             var response = await _httpClient.PostAsync("/api/User", content);
             if (response.IsSuccessStatusCode)
             {
+                var responseData = await response.Content.ReadAsStringAsync();
+                var userFromServer = JsonConvert.DeserializeObject<User>(responseData);
+                if (VerificarContraseña(userToValidate, userFromServer))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        private bool VerificarContraseña(User usuario, User usuarioAlmacenado)
+        {
+            if (usuario.UserPassword == usuarioAlmacenado.UserPassword)
+            {
                 return true;
             }
             return false;
+
+            // Verificar la contraseña. Puedes ajustar esto según la lógica específica de tu aplicación.
+            // Por ejemplo, si las contraseñas están en texto claro, puedes hacer una comparación directa.
+            // Si las contraseñas están hasheadas, deberías comparar los hashes.
+            //return usuario.UserPassword == usuarioAlmacenado.UserPassword;
         }
 
 
