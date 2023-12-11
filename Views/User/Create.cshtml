@@ -3,39 +3,97 @@
     ViewData["Title"] = "Añadir Usuario";
 }
 
-<h1 class="text-center">@ViewData["Title"]</h1>
-
 <div class="container">
-    <form method="post" class="needs-validation" novalidate>
-        <div class="mb-3">
-            <label for="MailUsuario" class="form-label">Ingrese un correo para la cuenta</label>
-            <input asp-for="UserMail" class="form-control" id="MailUsuario" placeholder="Ingrese el mail del nuevo Usuario" required>
-            <div class="invalid-feedback">Este campo es obligatorio.</div>
-        </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6 mt-5">
+            <h2 class="text-center">@ViewData["Title"]</h2>
 
-        <div class="mb-3">
-            <label for="ContraseñaUser" class="form-label">Ingrese la Contraseña</label>
-            <input asp-for="UserPassword" class="form-control" id="ContraseñaUser" placeholder="Ingrese una contraseña" required>
-            <div class="invalid-feedback">Este campo es obligatorio.</div>
-        </div>
+            <form method="post" class="needs-validation" novalidate>
+                <div class="mb-3">
+                    <label for="MailUsuario" class="form-label">Correo electrónico</label>
+                    <input asp-for="UserMail" class="form-control" id="MailUsuario" placeholder="Ingrese el correo electrónico" required>
+                    <div class="invalid-feedback">Este campo es obligatorio.</div>
+                </div>
 
-        <div class="mb-3">
-            <label for="ContraseñaUser" class="form-label">Confirmar Contraseña</label>
-            <input asp-for="UserPassword" class="form-control" id="ContraseñaUser" placeholder="Re-ingrese la misma contraseña" required>
-            <div class="invalid-feedback">Este campo es obligatorio.</div>
-        </div>
+                <div class="mb-3">
+                    <label for="ContraseñaUser" class="form-label">Contraseña</label>
+                    <input asp-for="UserPassword" class="form-control" id="ContraseñaUser" placeholder="Ingrese la contraseña" type="password" required>
+                    <div class="invalid-feedback">La contraseña debe tener al menos 8 caracteres.</div>
+                    <small id="contraseñaMensaje" class="form-text text-danger d-none">La contraseña debe tener al menos 8 caracteres.</small>
+                </div>
 
-        <div class="row justify-content-center">
-            <div class="col-6">
-                <button type="submit" id="guardarBtn" class="btn btn-primary btn-block" disabled>Guardar</button>
-            </div>
-            <div class="col-6">
-                <a asp-controller="Producto"  asp-action="Index" class="btn btn-outline-secondary btn-block">Regresar</a>
-            </div>
+                <div class="mb-3">
+                    <label for="ConfirmarContraseñaUser" class="form-label">Confirmar Contraseña</label>
+                    <input asp-for="ConfirmPassword" class="form-control" id="ConfirmarContraseñaUser" placeholder="Re-ingrese la contraseña" type="password" required>
+                    <div class="invalid-feedback">Este campo es obligatorio.</div>
+                    <small id="confirmarContraseñaMensaje" class="form-text text-danger d-none">Las contraseñas no coinciden.</small>
+                </div>
+
+                <div class="mb-3 text-center">
+                    <button type="button" id="guardarBtn" class="btn btn-primary" disabled onclick="guardarClick()">Guardar</button>
+                </div>
+            </form>
         </div>
-    </form>
+    </div>
 </div>
 
-<p class="text-center mt-4">Esta es la vista para añadir un usuario.</p>
+@section Scripts {
+    <script>
+        var userMailInput = document.getElementById("MailUsuario");
+        var passwordInput = document.getElementById("ContraseñaUser");
+        var confirmPasswordInput = document.getElementById("ConfirmarContraseñaUser");
+        var contraseñaMensaje = document.getElementById("contraseñaMensaje");
+        var confirmarContraseñaMensaje = document.getElementById("confirmarContraseñaMensaje");
+        var guardarBtn = document.getElementById("guardarBtn");
 
+        function validatePassword() {
+            if (passwordInput.value.length >= 8) {
+                contraseñaMensaje.classList.add("d-none");
+            } else {
+                contraseñaMensaje.classList.remove("d-none");
+            }
 
+            if (passwordInput.value === confirmPasswordInput.value) {
+                confirmPasswordInput.setCustomValidity('');
+                confirmarContraseñaMensaje.classList.add("d-none");
+            } else {
+                confirmPasswordInput.setCustomValidity('Las contraseñas no coinciden.');
+                confirmarContraseñaMensaje.classList.remove("d-none");
+            }
+        }
+
+        function validarCampos() {
+            var camposLlenos = userMailInput.value.trim() !== "" &&
+                passwordInput.value.trim() !== "" &&
+                confirmPasswordInput.value.trim() !== "";
+
+            if (camposLlenos && passwordInput.checkValidity() && passwordInput.value.length >= 8) {
+                guardarBtn.removeAttribute("disabled");
+            } else {
+                guardarBtn.setAttribute("disabled", "true");
+            }
+        }
+
+        userMailInput.addEventListener('input', validarCampos);
+        passwordInput.addEventListener('input', function () {
+            validatePassword();
+            validarCampos();
+        });
+        confirmPasswordInput.addEventListener('input', function () {
+            validatePassword();
+            validarCampos();
+        });
+
+        function guardarClick() {
+            validatePassword();
+            if (confirmPasswordInput.checkValidity()) {
+                if (passwordInput.value.length < 8) {
+                    alert("La contraseña debe tener al menos 8 caracteres.");
+                } else {
+
+                    alert("Usuario guardado exitosamente.");
+                }
+            }
+        }
+    </script>
+}
