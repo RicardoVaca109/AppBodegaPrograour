@@ -1,8 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using appBodega.Models;
 using appBodega.Services;
-using appBodega.Models;
-using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
 
 namespace appBodega.Controllers
 {
@@ -24,20 +22,26 @@ namespace appBodega.Controllers
         // GET: UserController/Details/5
         public async Task<IActionResult> Details(User usuario)
         {
-
-            Console.WriteLine(usuario);
-
-            var result = await _apiService.VerificarUsuario(usuario);
-
-            //&& _apiService.VerificarContraseña(usuario)
-            if (result)
+            try
             {
-                
-                return RedirectToAction("Index", "Producto");
+                var result = await _apiService.VerificarUsuario(usuario);
+
+                if (result)
+                {
+                    return RedirectToAction("Index", "Producto");
+                }
+                else
+                {
+                    TempData["Error"] = "Credenciales incorrectas. Por favor, inténtelo de nuevo.";
+                    return RedirectToAction("Index");
+                }
             }
-
-            return View("Index");
-
+            catch (Exception ex)
+            {
+                // Manejar cualquier excepción que pueda ocurrir durante la verificación.
+                TempData["Error"] = "Ocurrió un error durante la verificación. Por favor, inténtelo de nuevo.";
+                return RedirectToAction("Index");
+            }
         }
 
         // GET: UserController/Create
@@ -63,10 +67,6 @@ namespace appBodega.Controllers
             return RedirectToAction("Index");
         }
 
-
-
-
-
-
+      
     }
 }

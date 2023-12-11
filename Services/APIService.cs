@@ -26,7 +26,7 @@ namespace appBodega.Services
         }
         public async Task<bool> DeleteProducto(int ProductoId)
         {
-            var response = await _httpClient.DeleteAsync($"/api/Producto/{ProductoId}");
+            var response = await _httpClient.DeleteAsync($"api/Producto/{ProductoId}");
             if (response.StatusCode == HttpStatusCode.NoContent)
             {
                 return true;
@@ -36,7 +36,7 @@ namespace appBodega.Services
 
         public async Task<Producto> GetProducto(int ProveedorId)
         {
-            var response = await _httpClient.GetAsync($"/api/Producto/{ProveedorId}");
+            var response = await _httpClient.GetAsync($"api/Producto/{ProveedorId}");
             if (response.IsSuccessStatusCode)
             {
                 var json_response = await response.Content.ReadAsStringAsync();
@@ -47,7 +47,7 @@ namespace appBodega.Services
         }
         public async Task<List<Producto>> GetProductos()
         {
-            var response = await _httpClient.GetAsync("/api/Producto");
+            var response = await _httpClient.GetAsync("api/Producto");
             if (response.IsSuccessStatusCode)
             {
                 var json_response = await response.Content.ReadAsStringAsync();
@@ -61,7 +61,7 @@ namespace appBodega.Services
         public async Task<Producto> PostProducto(Producto producto)
         {
             var content = new StringContent(JsonConvert.SerializeObject(producto), Encoding.UTF8, "application/json");
-            var response = await _httpClient.PostAsync("/api/Producto/", content);
+            var response = await _httpClient.PostAsync("api/Producto/", content);
             if (response.IsSuccessStatusCode)
             {
                 var json_response = await response.Content.ReadAsStringAsync();
@@ -74,7 +74,7 @@ namespace appBodega.Services
         public async Task<Producto> PutProducto(int ProductoId, Producto producto)
         {
             var content = new StringContent(JsonConvert.SerializeObject(producto), Encoding.UTF8, "application/json");
-            var response = await _httpClient.PutAsync($"/api/Producto/{ProductoId}", content);
+            var response = await _httpClient.PutAsync($"api/Producto/{ProductoId}", content);
             if (response.IsSuccessStatusCode)
             {
                 var json_response = await response.Content.ReadAsStringAsync();
@@ -86,7 +86,7 @@ namespace appBodega.Services
 
         public async Task<bool> DeleteEmpresa(int EmpresaID)
         {
-            var response = await _httpClient.DeleteAsync($"/api/Empresa/{EmpresaID}");
+            var response = await _httpClient.DeleteAsync($"api/Empresa/{EmpresaID}");
             if (response.StatusCode == HttpStatusCode.NoContent)
             {
                 return true;
@@ -108,7 +108,7 @@ namespace appBodega.Services
 
         public async Task<Empresa> GetEmpresa(int EmpresaID)
         {
-            var response = await _httpClient.GetAsync($"/api/Empresa/{EmpresaID}");
+            var response = await _httpClient.GetAsync($"api/Empresa/{EmpresaID}");
             if (response.IsSuccessStatusCode)
             {
                 var json_response = await response.Content.ReadAsStringAsync();
@@ -120,7 +120,7 @@ namespace appBodega.Services
 
         public async Task<List<Empresa>> GetEmpresas()
         {
-            var response = await _httpClient.GetAsync("/api/Empresa");
+            var response = await _httpClient.GetAsync("api/Empresa");
             if (response.IsSuccessStatusCode)
             {
                 var json_response = await response.Content.ReadAsStringAsync();
@@ -133,7 +133,7 @@ namespace appBodega.Services
         public async Task<Empresa> PostEmpresa(Empresa empresas)
         {
             var content = new StringContent(JsonConvert.SerializeObject(empresas), Encoding.UTF8, "application/json");
-            var response = await _httpClient.PostAsync("/api/Empresa/", content);
+            var response = await _httpClient.PostAsync("api/Empresa/", content);
             if (response.IsSuccessStatusCode)
             {
                 var json_response = await response.Content.ReadAsStringAsync();
@@ -146,7 +146,7 @@ namespace appBodega.Services
         public async Task<Empresa> PutEmpresa(int EmpresaID, Empresa empresa)
         {
             var content = new StringContent(JsonConvert.SerializeObject(empresa), Encoding.UTF8, "application/json");
-            var response = await _httpClient.PutAsync($"/api/Empresa/{EmpresaID}", content);
+            var response = await _httpClient.PutAsync($"api/Empresa/{EmpresaID}", content);
             if (response.IsSuccessStatusCode)
             {
                 var json_response = await response.Content.ReadAsStringAsync();
@@ -158,7 +158,7 @@ namespace appBodega.Services
 
         public async Task<List<User>> GetUsers()
         {
-            var response = await _httpClient.GetAsync("/api/User");
+            var response = await _httpClient.GetAsync("api/User");
             if (response.IsSuccessStatusCode)
             {
                 var json_response = await response.Content.ReadAsStringAsync();
@@ -171,7 +171,7 @@ namespace appBodega.Services
 
         public async Task<User> GetUser(int IdUser)
         {
-            var response = await _httpClient.GetAsync($"/api/User/{IdUser}");
+            var response = await _httpClient.GetAsync($"api/User/{IdUser}");
             if (response.IsSuccessStatusCode)
             {
                 var json_response = await response.Content.ReadAsStringAsync();
@@ -183,38 +183,32 @@ namespace appBodega.Services
 
         public async Task<bool> VerificarUsuario(User userToValidate)
         {
-            var content = new StringContent(JsonConvert.SerializeObject(userToValidate), Encoding.UTF8, "application/json");
-            var response = await _httpClient.PostAsync("/api/User", content);
-            if (response.IsSuccessStatusCode)
+            //var content = new StringContent(JsonConvert.SerializeObject(userToValidate), Encoding.UTF8, "application/json");
+            //var response = await _httpClient.PostAsync("/api/User", content);
+
+            if (userToValidate != null)
             {
-                var responseData = await response.Content.ReadAsStringAsync();
-                var userFromServer = JsonConvert.DeserializeObject<User>(responseData);
-                if (VerificarContraseña(userToValidate, userFromServer))
+                var content = new StringContent(JsonConvert.SerializeObject(userToValidate), Encoding.UTF8, "application/json");
+                var response = await _httpClient.PostAsync("api/User", content);
+              
+                if (response.IsSuccessStatusCode)
                 {
-                    return true;
+                    var responseData = await response.Content.ReadAsStringAsync();
+                    var userFromServer = JsonConvert.DeserializeObject<User>(responseData);
+                    if (response != null && userToValidate.UserPassword == userToValidate.UserPassword && userToValidate.UserMail == userToValidate.UserMail )
+                    {
+                        return true;
+                    }
                 }
             }
+
             return false;
         }
-        private bool VerificarContraseña(User usuario, User usuarioAlmacenado)
-        {
-            if (usuario.UserPassword == usuarioAlmacenado.UserPassword)
-            {
-                return true;
-            }
-            return false;
-
-            // Verificar la contraseña. Puedes ajustar esto según la lógica específica de tu aplicación.
-            // Por ejemplo, si las contraseñas están en texto claro, puedes hacer una comparación directa.
-            // Si las contraseñas están hasheadas, deberías comparar los hashes.
-            //return usuario.UserPassword == usuarioAlmacenado.UserPassword;
-        }
-
 
         public async Task<User> PostUser(User newUser)
         {
             var content = new StringContent(JsonConvert.SerializeObject(newUser), Encoding.UTF8, "application/json");
-            var response = await _httpClient.PostAsync("/api/User/create", content);
+            var response = await _httpClient.PostAsync("api/User/create", content);
             if (response.IsSuccessStatusCode)
             {
                 var json_response = await response.Content.ReadAsStringAsync();
@@ -226,7 +220,7 @@ namespace appBodega.Services
 
         public async Task<List<int>> GetEmpresaIDs()
         {
-            var response = await _httpClient.GetAsync("/api/Empresa/EmpresaID");
+            var response = await _httpClient.GetAsync("api/Empresa/EmpresaID");
             if (response.IsSuccessStatusCode)
             {
                 var json_response = await response.Content.ReadAsStringAsync();

@@ -8,14 +8,20 @@
 <div class="container">
     <form method="post" class="needs-validation" novalidate>
         <div class="mb-3">
-            <label for="MailUsuario" class="form-label">MaildelUsuario</label>
+            <label for="MailUsuario" class="form-label">Ingrese un correo para la cuenta</label>
             <input asp-for="UserMail" class="form-control" id="MailUsuario" placeholder="Ingrese el mail del nuevo Usuario" required>
             <div class="invalid-feedback">Este campo es obligatorio.</div>
         </div>
 
         <div class="mb-3">
-            <label for="ContraseñaUser" class="form-label">Ponga la Contraseña</label>
+            <label for="ContraseñaUser" class="form-label">Ingrese la Contraseña</label>
             <input asp-for="UserPassword" class="form-control" id="ContraseñaUser" placeholder="Ingrese una contraseña" required>
+            <div class="invalid-feedback">Este campo es obligatorio.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="ContraseñaUser" class="form-label">Confirmar Contraseña</label>
+            <input asp-for="UserPassword" class="form-control" id="ContraseñaUser" placeholder="Re-ingrese la misma contraseña" required>
             <div class="invalid-feedback">Este campo es obligatorio.</div>
         </div>
 
@@ -24,12 +30,12 @@
                 <button type="submit" id="guardarBtn" class="btn btn-primary btn-block" disabled>Guardar</button>
             </div>
             <div class="col-6">
-                <a asp-action="Index" class="btn btn-outline-secondary btn-block">Regresar</a>
+                <a asp-controller="Producto"  asp-action="Index" class="btn btn-outline-secondary btn-block">Regresar</a>
             </div>
         </div>
     </form>
 </div>
 
-<p class="text-center mt-4">Esta es la vista para añadir una empresa.</p>
+<p class="text-center mt-4">Esta es la vista para añadir un usuario.</p>
 
 
