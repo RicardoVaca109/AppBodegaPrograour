@@ -50,7 +50,7 @@ namespace appBodega.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Create(User usuario)
+        public async Task<IActionResult> CreateUser(User usuario)
         {
             User usuario1 = await _apiService.PostUser(usuario);
             return RedirectToAction("Index");

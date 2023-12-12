@@ -48,9 +48,6 @@ namespace appBodega.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Producto producto)
         {
-
-
-
             Producto producto1 = await _apiService.PostProducto(producto);
             return RedirectToAction("Index");
         }
