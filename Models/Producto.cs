@@ -17,7 +17,7 @@ namespace appBodega.Models
         
         public int ProveedorId { get; set; }
 
-        public byte[] Imagen { get; set;}
-        
+        public string urlImage { get; set; }
+
     }
 }

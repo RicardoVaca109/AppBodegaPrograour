@@ -8,7 +8,7 @@
         <div class="col-md-6 mt-5">
             <h2 class="text-center">@ViewData["Title"]</h2>
 
-            <form id="userForm" method="post" action="/UserController/CreateUser class="needs-validation" novalidate>
+            <form id="userForm" method="post" action="/UserController/CrearUsuario" class="needs-validation" novalidate>
                 <div class="mb-3">
                     <label for="MailUsuario" class="form-label">Correo electrónico</label>
                     <input asp-for="UserMail" class="form-control" id="MailUsuario" placeholder="Ingrese el correo electrónico" required>
@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="mb-3 text-center">
-                    <a asp-action="Index" button type="submit" id="guardarBtn" class="btn btn-primary" disabled onclick="guardarClick()">Guardar</a>
+                    <a asp-action="Index" button type="submit" class="btn btn-outline-secondary btn-block" disabled onclick="guardarClick()">Guardar</a>
                     
                 </div>
             </form>

@@ -207,16 +207,28 @@ namespace appBodega.Services
 
         public async Task<User> PostUser(User newUser)
         {
-            var content = new StringContent(JsonConvert.SerializeObject(newUser), Encoding.UTF8, "application/json");
+           
+            var requestObject = new
+            {
+                newUser.UserMail,
+                newUser.UserPassword,
+                // Otros campos si los tienes
+            };
+            var jsonRequest = JsonConvert.SerializeObject(requestObject);
+            var content = new StringContent(jsonRequest, Encoding.UTF8, "application/json");
             var response = await _httpClient.PostAsync("api/User/create", content);
             if (response.IsSuccessStatusCode)
             {
-                var json_response = await response.Content.ReadAsStringAsync();
-                User usuario2 = JsonConvert.DeserializeObject<User>(json_response);
+                // Leer la respuesta y deserializarla a un objeto User
+                var jsonResponse = await response.Content.ReadAsStringAsync();
+                User usuario2 = JsonConvert.DeserializeObject<User>(jsonResponse);
                 return usuario2;
             }
-            return new User();
+
+            // Manejar el caso en el que la solicitud no fue exitosa
+            return null; // Podrías lanzar una excepción aquí o manejar el error de otra manera
         }
+    
 
         public async Task<List<int>> GetEmpresaIDs()
         {

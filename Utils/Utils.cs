@@ -55,5 +55,7 @@ namespace appBodega.Utils
                 ProveedorId = 2 }
 
         };
+
+
     }
 }
