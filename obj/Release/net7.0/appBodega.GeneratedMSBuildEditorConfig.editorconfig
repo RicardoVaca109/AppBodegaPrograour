@@ -9,85 +9,85 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = appBodega
 build_property.RootNamespace = appBodega
-build_property.ProjectDir = R:\prograFinal\appBodega\
+build_property.ProjectDir = R:\mvcProducto\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = R:\prograFinal\appBodega
+build_property.MSBuildProjectDirectory = R:\mvcProducto
 build_property._RazorSourceGeneratorDebug = 
 
-[R:/prograFinal/appBodega/Views/Empresa/Create.cshtml]
+[R:/mvcProducto/Views/Empresa/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzYVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[R:/prograFinal/appBodega/Views/Empresa/Details.cshtml]
+[R:/mvcProducto/Views/Empresa/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzYVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[R:/prograFinal/appBodega/Views/Empresa/Edit.cshtml]
+[R:/mvcProducto/Views/Empresa/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzYVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[R:/prograFinal/appBodega/Views/Empresa/Index.cshtml]
+[R:/mvcProducto/Views/Empresa/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzYVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[R:/prograFinal/appBodega/Views/Home/Index.cshtml]
+[R:/mvcProducto/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[R:/prograFinal/appBodega/Views/Home/Privacy.cshtml]
+[R:/mvcProducto/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[R:/prograFinal/appBodega/Views/Producto/Create.cshtml]
+[R:/mvcProducto/Views/Producto/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[R:/prograFinal/appBodega/Views/Producto/Details.cshtml]
+[R:/mvcProducto/Views/Producto/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[R:/prograFinal/appBodega/Views/Producto/Edit.cshtml]
+[R:/mvcProducto/Views/Producto/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[R:/prograFinal/appBodega/Views/Producto/Index.cshtml]
+[R:/mvcProducto/Views/Producto/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[R:/prograFinal/appBodega/Views/Shared/Error.cshtml]
+[R:/mvcProducto/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[R:/prograFinal/appBodega/Views/Shared/_ValidationScriptsPartial.cshtml]
+[R:/mvcProducto/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[R:/prograFinal/appBodega/Views/User/Create.cshtml]
+[R:/mvcProducto/Views/User/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[R:/prograFinal/appBodega/Views/User/Details.cshtml]
+[R:/mvcProducto/Views/User/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[R:/prograFinal/appBodega/Views/User/Edit.cshtml]
+[R:/mvcProducto/Views/User/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[R:/prograFinal/appBodega/Views/User/Index.cshtml]
+[R:/mvcProducto/Views/User/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[R:/prograFinal/appBodega/Views/_ViewImports.cshtml]
+[R:/mvcProducto/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[R:/prograFinal/appBodega/Views/_ViewStart.cshtml]
+[R:/mvcProducto/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[R:/prograFinal/appBodega/Views/Shared/_Layout.cshtml]
+[R:/mvcProducto/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-axtcxqgx7t
